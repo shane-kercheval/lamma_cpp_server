@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  llama-server:
+    build: .
+    volumes:
+      - ./models:/app/models  # Mount the models directory
+    # server options:
+    # https://github.com/ggerganov/llama.cpp/blob/master/examples/server/README.md
+    command: >-
+      /llama.cpp/server
+      -m models/mistral-7b-v0.1.Q6_K.gguf
+      -c 4096
+      -ngl 40
+      --host 0.0.0.0
+      --port 8080
+    ports:
+      - "8080:8080" # Expose port (adjust if necessary)
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]
+  bash:
+    build: .
+    working_dir: /code
+    volumes:
+      - .:/code
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    links:
+      - llama-server
