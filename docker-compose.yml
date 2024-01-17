@@ -8,7 +8,7 @@ services:
     # https://github.com/ggerganov/llama.cpp/blob/master/examples/server/README.md
     command: >-
       /llama.cpp/server
-      -m models/mistral-7b-v0.1.Q6_K.gguf
+      -m models/mistral-7b-instruct-v0.2.Q6_K.gguf
       -c 4096
       -ngl 40
       --host 0.0.0.0
