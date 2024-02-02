@@ -1,6 +1,6 @@
 # lamma_cpp_server
 
-Containers `Dockerfile`` and `docker-compose.yml` needed to run `llama.cpp`'s server component. https://github.com/ggerganov/llama.cpp/tree/master/examples/server.
+Containers `Dockerfile` and `docker-compose.yml` needed to run `llama.cpp`'s server component. https://github.com/ggerganov/llama.cpp/tree/master/examples/server.
 
 ---
 
